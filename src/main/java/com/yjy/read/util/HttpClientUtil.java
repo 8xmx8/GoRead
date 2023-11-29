@@ -14,7 +14,7 @@ public class HttpClientUtil {
 
     public static void main(String[] args) {
         String result = doGet(qidianStr);
-        System.out.println(result);
+//        System.out.println(result);
     }
 
     public static String doGet(String str) {
