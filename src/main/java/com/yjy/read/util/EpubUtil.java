@@ -11,13 +11,11 @@ import java.io.InputStream;
 import java.util.List;
 
 public class EpubUtil {
-
     public static void main(String[] args) {
         // 直接获取文件的路径（相对路径） 对应项目根路径
         File file = new File("epub/三体.epub");
         // 打印绝对路径
         System.out.println(file.getAbsolutePath());
-
         InputStream in = null;
         try {
             EpubReader reader = new EpubReader();
