@@ -8,6 +8,8 @@ public class Book {
 
     private String name;
 
+    private Long authorId;
+
     private String author;
 
     private String description;
@@ -17,6 +19,4 @@ public class Book {
     private Integer status;
 
     private String type;
-
-
 }

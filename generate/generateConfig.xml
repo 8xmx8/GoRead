@@ -37,9 +37,10 @@
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
-        <table tableName="book"/>
-        <table tableName="chapter"/>
         <table tableName="chapter_content"/>
         <table tableName="author"/>
+        <table tableName="book"/>
+        <table tableName="chapter"/>
+        <table tableName="user"/>
     </context>
 </generatorConfiguration>
