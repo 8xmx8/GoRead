@@ -4,25 +4,42 @@
 <generatorConfiguration>
     <context id="simple" targetRuntime="MyBatis3Simple">
 
-        <commentGenerator>
-            <property name="suppressDate" value="true"/>
+        <!-- 通过这个属性去掉自动生成的时候跟随生成的一些注释 -->
+        <commentGenerator><!--非必要部分-->
+            <!-- 去掉注释 -->
             <property name="suppressAllComments" value="true"/>
+            <!--去掉时间戳 -->
+            <property name="suppressDate" value="true"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/read"
+                        connectionURL="jdbc:mysql://localhost:3306/read?characterEncoding=utf8"
                         userId="root"
                         password="root"
         />
+        <!-- java与jdbc数据转换 -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <javaModelGenerator targetPackage="com.yjy.read.entity" targetProject="src/main/java">
 
-        <javaModelGenerator targetPackage="com.yjy.read.entity" targetProject="src/main/java"/>
+            <!--        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="example.mapper" targetProject="src/main/java"/>-->
 
-        <!--        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="example.mapper" targetProject="src/main/java"/>-->
+            <!--        <table tableName="chapter"/>-->
+            <!--        <table tableName="chapter_content"/>-->
+            <property name="enableSubPackages" value="false"/>
 
-        <!--        <table tableName="chapter"/>-->
-        <!--        <table tableName="chapter_content"/>-->
+            <!--在set中去掉空格 (trim)-->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 设置生成的mapper.xml所在的位置 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
         <table tableName="book"/>
         <table tableName="chapter"/>
         <table tableName="chapter_content"/>
+        <table tableName="author"/>
     </context>
 </generatorConfiguration>

@@ -2,18 +2,15 @@ package com.yjy.read.entity;
 
 import lombok.Data;
 
-import java.io.Serializable;
-
 @Data
-public class Book implements Serializable {
-    private static final long serialVersionUID = 2343914114441735421L;
+public class Book {
     private Long id;
 
     private String name;
 
-    private String autor;
+    private String author;
 
-    private String desc;
+    private String description;
 
     private Integer count;
 

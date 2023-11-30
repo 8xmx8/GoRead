@@ -3,16 +3,12 @@ package com.yjy.read.entity;
 import lombok.Data;
 
 @Data
-public class Chapter {
+public class Author {
     private Long id;
-
-    private Long bookId;
 
     private String name;
 
-    private Long contentId;
-
-    private Long type;
+    private String description;
 
 
 }

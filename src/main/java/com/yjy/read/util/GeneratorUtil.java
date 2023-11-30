@@ -12,10 +12,9 @@ import java.util.List;
 public class GeneratorUtil {
 
     public static void main(String[] args) throws Exception {
-        List<String> warnings = new ArrayList<String>();
+        List<String> warnings = new ArrayList<>();
         boolean overwrite = true;
         File configFile = new File("generate/generateConfig.xml");
-        System.out.println(configFile);
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
