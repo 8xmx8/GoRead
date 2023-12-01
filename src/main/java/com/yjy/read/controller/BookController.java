@@ -30,7 +30,6 @@ public class BookController {
     }
 
     @RequestMapping("/search")
-//    @ResponseBody
     public String search(@RequestParam("keyword") String keyword, Model model) {
         System.out.println(keyword);
         QueryWrapper<Book> wrapper = Wrappers.query();
