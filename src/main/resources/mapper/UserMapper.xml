@@ -41,4 +41,9 @@
         FROM USER
         where `name` = #{name,jdbcType=VARCHAR};
     </select>
+    <select id="selectGroup" resultType="com.yjy.read.entity.vo.GroupBean">
+        SELECT COUNT(`name`) as cnt, age
+        FROM USER
+        GROUP BY age;
+    </select>
 </mapper>
