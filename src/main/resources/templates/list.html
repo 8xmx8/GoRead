@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍列表</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+<h1> 书籍列表 </h1>
+<br><br>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>名称</th>
+        <th>图片</th>
+        <th>作者</th>
+        <th>描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vo : ${voList}">
+        <td>
+            <a th:href="'/detail/' + ${vo.id}"><p th:text="${vo.name}">name</p></a>
+        </td>
+        <td><img th:src="@{'/img/' + ${vo.imgPath}}"></td>
+        <td th:text="${vo.author}">author</td>
+        <td th:text="${vo.desc}">desc</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

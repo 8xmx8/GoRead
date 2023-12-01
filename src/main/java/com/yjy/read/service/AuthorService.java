@@ -4,6 +4,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.yjy.read.entity.Author;
 
 public interface AuthorService extends IService<Author> {
-    public void insertIfNotExists(Author author);
+     void insertIfNotExists(Author author);
 
 }

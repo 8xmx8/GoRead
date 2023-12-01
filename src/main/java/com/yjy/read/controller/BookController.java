@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller()
+@Controller
 public class BookController {
 
     @Autowired
@@ -23,6 +23,7 @@ public class BookController {
 
     @Autowired
     private RankService rankService;
+
 
     @RequestMapping("/index")
     public String index() {

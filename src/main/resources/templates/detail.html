@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍详情</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+
+<h1>书籍详情</h1>
+<br><br>
+
+<table class="table table-hover">
+    <tr>
+        <td>作品名称</td>
+        <td th:text="${vo.name}"></td>
+    </tr>
+
+    <tr>
+        <td>封面图</td>
+        <td><img th:src="@{'/images/' + ${vo.imgPath}}"></td>
+    </tr>
+
+    <tr>
+        <td>作者</td>
+        <td th:text="${vo.author}"></td>
+    </tr>
+
+    <tr>
+        <td>作品介绍</td>
+        <td th:text="${vo.desc}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
