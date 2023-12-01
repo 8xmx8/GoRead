@@ -6,4 +6,8 @@
 
 - java
 - SpringBoot
+- [redis](https://docs.spring.io/spring-data/redis/docs/current/api/)
+- mysql
+- bootstrap
+- thymeleaf
 - [Jsoup](https://jsoup.org/)

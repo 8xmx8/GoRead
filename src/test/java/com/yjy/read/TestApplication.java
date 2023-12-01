@@ -8,6 +8,7 @@ import com.yjy.read.entity.User;
 import com.yjy.read.mapper.UserMapper;
 import com.yjy.read.service.AuthorService;
 import com.yjy.read.service.UserService;
+import com.yjy.read.util.RedisUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -86,7 +87,7 @@ public class TestApplication {
         System.out.println(list1);
     }
 
-    @Test
+//    @Test
     public void testPage() {
 //        Page<User> userPage = new Page<>(1, 2);
         Page<User> userPage = new Page<>(2, 3);
@@ -98,6 +99,13 @@ public class TestApplication {
         System.out.println(page.getSize());
         System.out.println(page.getTotal());
         System.out.println();
+    }
+    @Autowired
+    private RedisUtil redisUtil;
+
+    @Test
+    public void testRedis(){
+        redisUtil.setKeyWithTimeout("yjy","12345",60);
     }
 
 
