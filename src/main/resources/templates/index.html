@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{index.title}">渡一读书</title>
+    <div th:include="common :: css_frag"></div>
+</head>
+<body>
+
+<div>
+    <image th:src="@{/images/duyi.png}" class="duyi-logo"></image>
+</div>
+
+<form th:action="@{/search}">
+    <input type="text" name="keyword" id="keyword">
+    <button th:text="#{index.search}">搜索</button>
+</form>
+<br><br>
+
+<label>
+    <a th:href="@{/index(lan='zh_CN')}">中文</a>
+    <a th:href="@{/index(lan='en_US')}">英文</a>
+</label>
+
+</body>
+</html>
