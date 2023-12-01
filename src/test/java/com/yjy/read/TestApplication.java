@@ -86,7 +86,7 @@ public class TestApplication {
         System.out.println(list1);
     }
 
-    //    @Test
+    @Test
     public void testPage() {
 //        Page<User> userPage = new Page<>(1, 2);
         Page<User> userPage = new Page<>(2, 3);
