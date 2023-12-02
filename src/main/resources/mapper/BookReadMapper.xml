@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjy.read.mapper.BookReadMapper">
+    <resultMap id="BaseResultMap" type="com.yjy.read.entity.BookRead">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="book_id" jdbcType="BIGINT" property="bookId"/>
+        <result column="chapter_id" jdbcType="BIGINT" property="chapterId"/>
+        <result column="last_read_time" jdbcType="TIMESTAMP" property="lastReadTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from book_read
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.yjy.read.entity.BookRead">
+        insert into book_read (id, user_id, book_id,
+                               chapter_id, last_read_time, status)
+        values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT},
+                #{chapterId,jdbcType=BIGINT}, #{lastReadTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="com.yjy.read.entity.BookRead">
+        update book_read
+        set user_id        = #{userId,jdbcType=BIGINT},
+            book_id        = #{bookId,jdbcType=BIGINT},
+            chapter_id     = #{chapterId,jdbcType=BIGINT},
+            last_read_time = #{lastReadTime,jdbcType=TIMESTAMP},
+            status         = #{status,jdbcType=INTEGER}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select id, user_id, book_id, chapter_id, last_read_time, status
+        from book_read
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select id, user_id, book_id, chapter_id, last_read_time, status
+        from book_read
+    </select>
+</mapper>

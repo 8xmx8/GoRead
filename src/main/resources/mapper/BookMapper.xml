@@ -10,6 +10,7 @@
         <result column="count" jdbcType="INTEGER" property="count"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
         <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="chapter_num" jdbcType="INTEGER" property="chapterNum"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
@@ -19,10 +20,10 @@
     <insert id="insert" parameterType="com.yjy.read.entity.Book">
         insert into book (id, name, author_id,
                           author, description, count,
-                          status, type)
+                          status, type, chapter_num)
         values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{authorId,jdbcType=BIGINT},
                 #{author,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER},
-                #{status,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR})
+                #{status,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{chapterNum,jdbcType=INTEGER})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.yjy.read.entity.Book">
         update book
@@ -32,7 +33,8 @@
             description = #{description,jdbcType=VARCHAR},
             count       = #{count,jdbcType=INTEGER},
             status      = #{status,jdbcType=INTEGER},
-            type        = #{type,jdbcType=VARCHAR}
+            type        = #{type,jdbcType=VARCHAR},
+            chapter_num = #{chapterNum,jdbcType=INTEGER}
         where id = #{id,jdbcType=BIGINT}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -43,7 +45,8 @@
                description,
                count,
                status,
-               type
+               type,
+               chapter_num
         from book
         where id = #{id,jdbcType=BIGINT}
     </select>
@@ -55,8 +58,10 @@
                description,
                count,
                status,
-               type
+               type,
+               chapter_num
         from book
     </select>
+
 
 </mapper>

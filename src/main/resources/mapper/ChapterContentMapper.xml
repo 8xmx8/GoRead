@@ -28,4 +28,5 @@
         select id, content
         from chapter_content
     </select>
+
 </mapper>

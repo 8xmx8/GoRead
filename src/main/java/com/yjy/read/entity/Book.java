@@ -19,4 +19,7 @@ public class Book {
     private Integer status;
 
     private String type;
+
+    private Integer chapterNum;
+
 }

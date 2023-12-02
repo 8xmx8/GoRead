@@ -13,4 +13,6 @@ public class Chapter {
     private Long contentId;
 
     private Long type;
+
+    private Integer sort;
 }

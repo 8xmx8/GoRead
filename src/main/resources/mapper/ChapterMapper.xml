@@ -7,6 +7,7 @@
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="content_id" jdbcType="BIGINT" property="contentId"/>
         <result column="type" jdbcType="BIGINT" property="type"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete
@@ -15,25 +16,27 @@
     </delete>
     <insert id="insert" parameterType="com.yjy.read.entity.Chapter">
         insert into chapter (id, book_id, name,
-                             content_id, type)
+                             content_id, type, sort)
         values (#{id,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
-                #{contentId,jdbcType=BIGINT}, #{type,jdbcType=BIGINT})
+                #{contentId,jdbcType=BIGINT}, #{type,jdbcType=BIGINT}, #{sort,jdbcType=INTEGER})
     </insert>
     <update id="updateByPrimaryKey" parameterType="com.yjy.read.entity.Chapter">
         update chapter
         set book_id    = #{bookId,jdbcType=BIGINT},
             name       = #{name,jdbcType=VARCHAR},
             content_id = #{contentId,jdbcType=BIGINT},
-            type       = #{type,jdbcType=BIGINT}
+            type       = #{type,jdbcType=BIGINT},
+            sort       = #{sort,jdbcType=INTEGER}
         where id = #{id,jdbcType=BIGINT}
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-        select id, book_id, name, content_id, type
+        select id, book_id, name, content_id, type, sort
         from chapter
         where id = #{id,jdbcType=BIGINT}
     </select>
     <select id="selectAll" resultMap="BaseResultMap">
-        select id, book_id, name, content_id, type
+        select id, book_id, name, content_id, type, sort
         from chapter
     </select>
+
 </mapper>
