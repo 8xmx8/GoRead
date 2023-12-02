@@ -27,7 +27,7 @@ public class RedisUtil {
     }
 
     public boolean hasKey(String key) {
-        return redisTemplate.hasKey(key);
+        return Boolean.TRUE.equals(redisTemplate.hasKey(key));
     }
 
     public void incr(String key) {

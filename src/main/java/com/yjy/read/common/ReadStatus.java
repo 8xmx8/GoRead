@@ -1,5 +1,7 @@
 package com.yjy.read.common;
 
+import lombok.Getter;
+
 // 用枚举 来区分状态
 public enum ReadStatus {
 
@@ -7,6 +9,7 @@ public enum ReadStatus {
     READING(1, "阅读中"),
     FINISH(2, "已读完");;
 
+    @Getter
     private int value;
     private String desc;
 
@@ -15,7 +18,4 @@ public enum ReadStatus {
         this.desc = desc;
     }
 
-    public int getValue() {
-        return value;
-    }
 }
