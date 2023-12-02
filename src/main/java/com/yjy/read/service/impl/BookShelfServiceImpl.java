@@ -19,12 +19,9 @@ public class BookShelfServiceImpl extends ServiceImpl<BookShelfMapper, BookShelf
     private BookReadMapper bookReadMapper;
     @Autowired
     private BookShelfMapper bookShelfMapper;
-    // 点击阅读
-    // 判断是否存在阅读记录   如果不存在  新增
-    // 章节为第一章   阅读时间是当前时间   阅读状态是正在读
-    // 如果存在    获取阅读记录   找到对应章节   展示其内容
-    // 最后阅读章节和最新更新章节的处理
 
+    // 当一本书被加入书架时  查询阅读记录   验证其状态    不存在即为未读
+    // 存在查看是否已读完 获取阅读时间   根据阅读时间排序
     @Override
     public boolean addToShelf(long userId, long bookId) {
         QueryWrapper<BookRead> wrapper = Wrappers.query();

@@ -14,6 +14,7 @@ public class BookRead {
 
     private Long chapterId;
 
+    //   @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date lastReadTime;
 
     private Integer status;
