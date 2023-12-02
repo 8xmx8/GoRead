@@ -14,7 +14,7 @@ import java.util.Arrays;
 @Component
 public class LogAspect {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // 在service包中的所有类的所有方法 在执行前 都会调用此方法
     @Before("execution(* com.yjy.read.service..*.*(..))")
