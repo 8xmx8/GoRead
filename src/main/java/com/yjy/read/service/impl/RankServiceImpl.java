@@ -1,6 +1,7 @@
 package com.yjy.read.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.yjy.read.common.Commons;
 import com.yjy.read.entity.Book;
 import com.yjy.read.mapper.BookMapper;
@@ -10,10 +11,7 @@ import com.yjy.read.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class RankServiceImpl implements RankService {
@@ -52,13 +50,12 @@ public class RankServiceImpl implements RankService {
             list.add(rankBean);
         }
         Collections.sort(list);
-
         // 取其中前十位
         int cnt = 0;
         for (RankBean rankBean : list) {
             cnt++;
             if (cnt > 10) break;
-            QueryWrapper wrapper = new QueryWrapper();
+            QueryWrapper<Book> wrapper = Wrappers.query();
             wrapper.eq("id", rankBean.getBookId());
             Book book = bookMapper.selectOne(wrapper);
             result.add(book);
